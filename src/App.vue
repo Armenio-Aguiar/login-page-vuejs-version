@@ -5,8 +5,8 @@
 			<div class="admin">
 				adminstrador
 				<div class="icon">
-					<i class="fa-solid fa-moon" onclick="darkMode()"></i>
-					<i class="fa-solid fa-sun" onclick="ligthMode()"></i>
+					<i class="fa-solid fa-moon" @click="darkActive=!darkActive" v-if="darkActive"></i>
+					<i class="fa-solid fa-sun" @click="darkActive=!darkActive"  v-else></i>
 				</div>
 			</div>
 			<div class="element">
@@ -21,13 +21,19 @@
 </template>
 
 <script>
-
-
 export default {
-
+  data:function(){
+    return{
+        darkActive:true
+    }
+  },
+  methods:{
+    activeMode(){
+      this.activeMode=!this.activeMode
+    }
+  }
 }
 </script>
-
 <style>
 body{
     margin: 0;
@@ -80,13 +86,7 @@ i:nth-child(1){
     flex-direction: column;
     align-items: center;
     padding-top: 60px;
-    /*position: relative;
-    width: 90%;
-    display: flex;
-    grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
-    grid-gap: 0 40px;
-    grid-template-rows: auto;
-    */
+
 }
 .box .content{
     position: relative;
@@ -162,5 +162,8 @@ i:nth-child(1){
 }
 input::-webkit-input-placeholder{
     color: #fff;
+}
+.body{
+  background: #fff;
 }
 </style>
