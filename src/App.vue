@@ -1,5 +1,5 @@
 <template>
-  <div class="app" :class="{DesableDarkMode:!darkActive}">
+  <div class="app">
     <div class="box">
 		<div class="content">
 			<div class="admin">
@@ -31,15 +31,19 @@ export default {
   methods:{
     activeMode(){
       this.darkActive=!this.darkActive
-      if(this.darkActive){
+      if(!this.darkActive){
+        document.body.classList.toggle("DesableDarkMode")
         console.log("active")
+      }else{
+   
+        console.log("desative")
       }   
     }
   }
 }
 </script>
 <style>
-.app{
+body{
     margin: 0;
     padding: 0;
     display: flex;
@@ -170,6 +174,8 @@ input::-webkit-input-placeholder{
 
 .DesableDarkMode{
     background: #fff;
-
+    z-index: 1;
+    width: 100%;
+    height: 500px;
 }
 </style>
