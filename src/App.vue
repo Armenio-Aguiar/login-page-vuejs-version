@@ -1,12 +1,12 @@
 <template>
-  <div id="app">
+  <div class="app" :class="{DesableDarkMode:!darkActive}">
     <div class="box">
 		<div class="content">
 			<div class="admin">
 				adminstrador
 				<div class="icon">
-					<i class="fa-solid fa-moon" @click="darkActive=!darkActive" v-if="darkActive"></i>
-					<i class="fa-solid fa-sun" @click="darkActive=!darkActive"  v-else></i>
+					<i class="fa-solid fa-moon" @click="activeMode" v-if="darkActive" ></i>
+					<i class="fa-solid fa-sun" @click="activeMode"  v-else></i>
 				</div>
 			</div>
 			<div class="element">
@@ -24,18 +24,22 @@
 export default {
   data:function(){
     return{
-        darkActive:true
+        darkActive:true,
+        ChangerMode:"none"
     }
   },
   methods:{
     activeMode(){
-      this.activeMode=!this.activeMode
+      this.darkActive=!this.darkActive
+      if(this.darkActive){
+        console.log("active")
+      }   
     }
   }
 }
 </script>
 <style>
-body{
+.app{
     margin: 0;
     padding: 0;
     display: flex;
@@ -163,7 +167,9 @@ i:nth-child(1){
 input::-webkit-input-placeholder{
     color: #fff;
 }
-.body{
-  background: #fff;
+
+.DesableDarkMode{
+    background: #fff;
+
 }
 </style>
