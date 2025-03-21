@@ -24,8 +24,7 @@
 export default {
   data:function(){
     return{
-        darkActive:true,
-        ChangerMode:"none"
+        darkActive:true
     }
   },
   methods:{
@@ -181,5 +180,4 @@ input::-webkit-input-placeholder{
     width: 100%;
     height: 500px;
 }
-
 </style>
