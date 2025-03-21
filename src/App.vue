@@ -5,8 +5,8 @@
 			<div class="admin">
 				adminstrador
 				<div class="icon">
-					<i class="fa-solid fa-moon" @click="activeMode" v-if="darkActive" ></i>
-					<i class="fa-solid fa-sun" @click="activeMode"  v-else></i>
+					<i class="fa-solid fa-sun" @click="activeMode" v-if="darkActive" ></i>
+					<i class="fa-solid fa-moon"  @click="activeMode"  v-else></i>
 				</div>
 			</div>
 			<div class="element">
@@ -31,14 +31,19 @@ export default {
   methods:{
     activeMode(){
       this.darkActive=!this.darkActive
+      console.log(this.darkActive)
       if(!this.darkActive){
-        document.body.classList.toggle("DesableDarkMode")
+        document.body.classList.toggle("activeDarkMode")
+        
         console.log("active")
       }else{
-   
+        document.body.classList.toggle("activeDarkMode")
         console.log("desative")
       }   
     }
+  },
+created(){
+    this.activeMode()
   }
 }
 </script>
@@ -50,8 +55,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #777;
-    background: rgb(16, 16, 48);
+    
 }
 .admin{
     position: absolute;
@@ -171,11 +175,11 @@ i:nth-child(1){
 input::-webkit-input-placeholder{
     color: #fff;
 }
-
-.DesableDarkMode{
-    background: #fff;
+.activeDarkMode{
+    background: rgb(16, 16, 48);
     z-index: 1;
     width: 100%;
     height: 500px;
 }
+
 </style>
